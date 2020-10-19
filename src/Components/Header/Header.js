@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Header(props) {
   const [_search, _setSearch] = useState("");
@@ -6,6 +6,9 @@ function Header(props) {
     event.preventDefault();
     props.setSearch(_search);
   };
+  useEffect(() => {
+    props.setSearch(_search);
+  }, [_search]);
   return (
     <header
       style={{
